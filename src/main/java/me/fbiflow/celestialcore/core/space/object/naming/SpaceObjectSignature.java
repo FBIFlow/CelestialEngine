@@ -98,7 +98,6 @@ public class SpaceObjectSignature {
                 this.type = type;
             }
         }
-
     }
 
 
