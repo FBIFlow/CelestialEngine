@@ -1,0 +1,29 @@
+# Compiled files
+*.class
+target/
+out/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+.idea/
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# Gradle
+.gradle/
+gradle-app.setting
+
+# Maven
+pom.xml.versionsBackup
