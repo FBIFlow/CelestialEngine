@@ -1,4 +1,4 @@
-package me.fbiflow.celestialcore.core.block;
+package me.fbiflow.celestialcore.core.world.block;
 
 public class Block {
 

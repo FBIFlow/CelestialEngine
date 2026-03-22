@@ -27,3 +27,5 @@ gradle-app.setting
 
 # Maven
 pom.xml.versionsBackup
+/src/main/java/me/fbiflow/celestialcore/zlocal/
+/project_analysis.txt

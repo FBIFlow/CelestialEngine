@@ -1,4 +1,4 @@
-package me.fbiflow.celestialcore.core.block;
+package me.fbiflow.celestialcore.core.world.block;
 
 import me.fbiflow.celestialcore.core.common.MetaData;
 

@@ -10,6 +10,7 @@ public class SpaceObject {
     private UUID uniqueId;
     private double weight;
     private double orbitalRadius;
+    private double speed;
     private List<SpaceObject> satellites;
 
     public SpaceObject(String name, UUID uniqueId, double weight, double orbitalRadius) {
