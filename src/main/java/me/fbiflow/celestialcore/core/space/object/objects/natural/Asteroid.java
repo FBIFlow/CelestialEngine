@@ -1,4 +1,6 @@
 package me.fbiflow.celestialcore.core.space.object.objects.natural;
 
-public class Asteroid {
+import me.fbiflow.celestialcore.core.space.object.SpaceObject;
+
+public class Asteroid extends SpaceObject {
 }

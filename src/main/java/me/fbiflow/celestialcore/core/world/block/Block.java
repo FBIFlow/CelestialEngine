@@ -6,7 +6,6 @@ public class Block {
     private final int y;
     private final int z;
 
-    private BlockType blockType;
     private BlockData blockData;
 
     public Block(int x, int y, int z) {
@@ -25,14 +24,6 @@ public class Block {
 
     public int getZ() {
         return z;
-    }
-
-    public BlockType getType() {
-        return blockType;
-    }
-
-    public void setType(BlockType blockType) {
-        this.blockType = blockType;
     }
 
     public BlockData getData() {

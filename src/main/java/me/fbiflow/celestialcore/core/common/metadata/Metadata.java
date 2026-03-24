@@ -1,9 +1,9 @@
-package me.fbiflow.celestialcore.core.space.object.metadata;
+package me.fbiflow.celestialcore.core.common.metadata;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SpaceObjectMetadata {
+public class Metadata {
 
     private final Map<String, Map<Class<?>, Object>> metadata = new HashMap<>();
 

@@ -1,4 +1,6 @@
 package me.fbiflow.celestialcore.core.space.object.objects.natural;
 
-public class Planet {
+import me.fbiflow.celestialcore.core.space.object.SpaceObject;
+
+public class Planet extends SpaceObject {
 }
