@@ -14,6 +14,12 @@ public class SpaceObjectSignature {
         this.modifier = modifier;
     }
 
+    public static void main(String[] args) {
+        var sign = new SpaceObjectSignature(Constants.Class.ST, Constants.Origin.NAT, Constants.Core.GAMMA, Constants.Modifier.PR);
+        System.out.println(sign);
+        System.out.println(sign.description());
+    }
+
     public static final class Constants {
 
         public enum Class {
@@ -56,41 +62,40 @@ public class SpaceObjectSignature {
 
             ALPHA,
             BETA,
-            GAMMA,
+            CHARLIE,
             DELTA,
             EPSILON,
-            ZETA,
-            ETA,
-            THETA,
+            FOXTROT,
+            GAMMA,
+            HOTEL,
             IOTA,
+            JULIET,
             KAPPA,
             LAMBDA,
-            MU,
-            NU,
-            XI,
-            OMICRON,
+            MIKE,
+            NOVEMBER,
+            OMEGA,
             PI,
+            QUEBEC,
             RHO,
             SIGMA,
             TAU,
             UPSILON,
-            PHI,
-            CHI,
-            PSI,
-            OMEGA
+            VICTOR,
+            WHISKEY,
+            XRAY,
+            YANKEE,
+            ZETA
+
 
         }
 
         public enum Modifier {
 
             DR("Dying"),
-            EC("Echo"),
             MN("Minor"),
             PR("Prime"),
-            RG("Rogue"),
-            SH("Shattered"),
-            VC("Void Core"),
-            WT("Wasteland");
+            SH("Shattered");
 
             public final String type;
 
@@ -100,5 +105,13 @@ public class SpaceObjectSignature {
         }
     }
 
+    @Override
+    public String toString() {
+        return String.format("[%s]-[%s]:[%s]-[%s]", clazz, origin, core, modifier);
+    }
+
+    public String description() {
+        return String.format("[%s]-[%s]:[%s]-[%s]", clazz.type, origin.type, core, modifier.type);
+    }
 
 }
