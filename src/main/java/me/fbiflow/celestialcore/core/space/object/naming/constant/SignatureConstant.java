@@ -1,4 +1,4 @@
-package me.fbiflow.celestialcore.core.space.object.naming.constants;
+package me.fbiflow.celestialcore.core.space.object.naming.constant;
 
 public class SignatureConstant {
 

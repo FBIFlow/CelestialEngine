@@ -1,6 +1,6 @@
 package me.fbiflow.celestialcore.core.world.block;
 
-import me.fbiflow.celestialcore.core.common.Material;
+import me.fbiflow.celestialcore.core.world.common.Material;
 import me.fbiflow.celestialcore.core.common.metadata.Metadata;
 
 public class BlockData extends Metadata {

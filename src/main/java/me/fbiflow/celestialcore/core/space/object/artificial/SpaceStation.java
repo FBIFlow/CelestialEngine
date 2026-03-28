@@ -1,4 +1,4 @@
-package me.fbiflow.celestialcore.core.space.object.objects.artificial;
+package me.fbiflow.celestialcore.core.space.object.artificial;
 
 import me.fbiflow.celestialcore.core.space.object.SpaceObject;
 

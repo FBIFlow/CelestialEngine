@@ -1,6 +1,6 @@
 package me.fbiflow.celestialcore.core.space.object.naming;
 
-import me.fbiflow.celestialcore.core.space.object.naming.constants.SignatureConstant;
+import me.fbiflow.celestialcore.core.space.object.naming.constant.SignatureConstant;
 
 public class SpaceObjectSignature {
 
