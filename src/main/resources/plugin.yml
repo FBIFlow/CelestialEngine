@@ -1,0 +1,4 @@
+main: me.fbiflow.celestialcore.Loader
+name: CelestialCore
+version: 1.0-ALPHA
+api-version: 1.21

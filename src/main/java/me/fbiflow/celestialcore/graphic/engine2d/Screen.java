@@ -1,5 +1,7 @@
 package me.fbiflow.celestialcore.graphic.engine2d;
 
+import me.fbiflow.celestialcore.graphic.color.Color;
+
 public class Screen {
 
     private double xPos;
@@ -7,21 +9,62 @@ public class Screen {
     private double zPos;
     private int yaw;
 
-    private double widthBlocks;
-    private double heightBlocks;
-    private double pixelSize;
+    private int width;
+    private int height;
 
-    public Screen(double xPos, double yPos, double zPos, int yaw, double widthBlocks, double heightBlocks, double pixelSize) {
+    private double pixelsPerBlock;
+
+    private Color backgroundColor;
+    private ScreenBuffer buffer;
+
+    public Screen(double xPos, double yPos, double zPos, int yaw, int width, int height, double pixelsPerBlock, Color backgroundColor) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.zPos = zPos;
-        this.widthBlocks = widthBlocks;
-        this.heightBlocks = heightBlocks;
         if (yaw % 90 != 0) {
             throw new IllegalArgumentException("Yaw must be a multiple of 90!");
         }
         this.yaw = yaw;
-        this.pixelSize = pixelSize;
+
+        this.width = width;
+        this.height = height;
+
+        this.pixelsPerBlock = pixelsPerBlock;
+
+        this.backgroundColor = backgroundColor;
+        this.buffer = new ScreenBuffer(this.width, this.height);
+    }
+
+    public void updateFrame() {
+        //TODO:
+    }
+
+    public ScreenBuffer getBuffer() {
+        return buffer;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(Color backgroundColor) {
+        this.backgroundColor = backgroundColor;
     }
 
     public double getXPos() {
@@ -59,27 +102,11 @@ public class Screen {
         this.yaw = yaw;
     }
 
-    public double getWidthBlocks() {
-        return widthBlocks;
+    public double getPixelsPerBlock() {
+        return pixelsPerBlock;
     }
 
-    public void setWidthBlocks(double widthBlocks) {
-        this.widthBlocks = widthBlocks;
-    }
-
-    public double getHeightBlocks() {
-        return heightBlocks;
-    }
-
-    public void setHeightBlocks(double heightBlocks) {
-        this.heightBlocks = heightBlocks;
-    }
-
-    public double getPixelSize() {
-        return pixelSize;
-    }
-
-    public void setPixelSize(double pixelSize) {
-        this.pixelSize = pixelSize;
+    public void setPixelsPerBlock(double pixelsPerBlock) {
+        this.pixelsPerBlock = pixelsPerBlock;
     }
 }
