@@ -1,0 +1,10 @@
+generator:
+  #base params of generator
+  base:
+    seed: 14170263
+  #params of population generator
+  population-generator:
+    population:
+  #params of space object generator
+  space-object-generator:
+
