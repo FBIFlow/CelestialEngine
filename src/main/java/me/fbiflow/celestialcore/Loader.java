@@ -25,7 +25,7 @@ public class Loader extends JavaPlugin implements Listener {
         var world = event.getPlayer().getWorld();
         var screen = new BukkitScreen(
                 world, 0, -56, 0, 0,
-                80, 60, 15, Color.GREEN
+                80, 60, 15, 50, Color.GREEN
         );
         new BukkitRunnable() {
             @Override
