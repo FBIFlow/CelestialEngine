@@ -1,15 +1,13 @@
-package me.fbiflow.celestialcore.graphic.engine2d.buffer;
+package me.fbiflow.celestialcore.graphic.engine2d.screen.buffer;
 
-import me.fbiflow.celestialcore.graphic.color.Color;
-import me.fbiflow.celestialcore.graphic.engine2d.edit.ScreenBufferEditSession;
+import me.fbiflow.celestialcore.graphic.engine2d.color.Color;
+import me.fbiflow.celestialcore.graphic.engine2d.screen.edit.EditSession;
 
 public class ScreenBuffer {
 
     private final Color[][] buffer;
     private final int width;
     private final int height;
-
-    private ScreenBufferEditSession editSession;
 
     public ScreenBuffer(int widthPixels, int heightPixels) {
         this.width = widthPixels;
@@ -23,9 +21,8 @@ public class ScreenBuffer {
         }
     }
 
-    public ScreenBufferEditSession editSession() {
-        this.editSession = new ScreenBufferEditSession(this);
-        return editSession;
+    public EditSession editSession() {
+        return new EditSession(this);
     }
 
     public void setPixel(int x, int y, Color color) {
@@ -38,13 +35,11 @@ public class ScreenBuffer {
         if (!isInBounds(x, y)) {
             throw new IllegalArgumentException("Pixel out of bounds");
         }
-        if (editSession.hasUpdates()) {
-            Color pixel = editSession.getPixel(x, y);
-            if (pixel != null) {
-                return pixel;
-            }
-        }
         return this.buffer[x][y];
+    }
+
+    public Color[][] getArray() {
+        return buffer;
     }
 
     public void clear(Color color) {

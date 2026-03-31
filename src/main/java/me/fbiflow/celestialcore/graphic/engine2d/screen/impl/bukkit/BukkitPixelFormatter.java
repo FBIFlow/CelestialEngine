@@ -1,6 +1,6 @@
-package me.fbiflow.celestialcore.graphic.engine2d.impl.bukkit;
+package me.fbiflow.celestialcore.graphic.engine2d.screen.impl.bukkit;
 
-import me.fbiflow.celestialcore.graphic.color.Color;
+import me.fbiflow.celestialcore.graphic.engine2d.color.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

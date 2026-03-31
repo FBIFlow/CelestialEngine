@@ -1,4 +1,4 @@
-package me.fbiflow.celestialcore.graphic.color;
+package me.fbiflow.celestialcore.graphic.engine2d.color;
 
 public enum Color {
 
