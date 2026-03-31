@@ -63,57 +63,37 @@ public class BukkitScreen extends Screen {
     }
 
     @Override
-    public void setPos(double x, double y, double z) {
+    public void onChangePos(double oldX, double oldY, double oldZ, double newX, double newY, double newZ) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void setHeight(int height) {
+    public void onChangeYaw(double oldYaw, double newYaw) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void setWidth(int width) {
+    public void onChangeWidth(int oldWidth, int newWidth) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void setBackgroundColor(Color backgroundColor) {
+    public void onChangeHeight(int oldHeight, int newHeight) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void setBuffer(ScreenBuffer buffer) {
+    public void onChangePixelsPerBlock(double oldPixelsPerBlock, double newPixelsPerBlock) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void setX(double x) {
+    public void onChangeFps(int oldFps, int newFps) {
         throw new NotImplementedException();
     }
 
     @Override
-    public void setY(double y) {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    public void setZ(double z) {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    public void setYaw(int yaw) {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    public void setPixelsPerBlock(double pixelsPerBlock) {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    public void setFps(int fps) {
+    public void onChangeBackgroundColor(Color oldBackgroundColor, Color newBackgroundColor) {
         throw new NotImplementedException();
     }
 }

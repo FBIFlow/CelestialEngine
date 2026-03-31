@@ -2,17 +2,15 @@ package me.fbiflow.celestialcore.graphic.engine2d.service;
 
 import me.fbiflow.celestialcore.graphic.engine2d.screen.Screen;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
-public class ScreenService {
+public interface ScreenService {
 
-    private final List<Screen> screens;
+    void performDrawTick();
 
-    public ScreenService() {
-        screens = new ArrayList<>();
-    }
+    void registerScreen(Screen screen);
 
+    void unregisterScreen(Screen screen);
 
-
+    Set<Screen> getScreens();
 }

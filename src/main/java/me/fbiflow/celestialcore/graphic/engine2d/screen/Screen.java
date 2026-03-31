@@ -17,7 +17,7 @@ public abstract class Screen {
     private int fps;
 
     private Color backgroundColor;
-    private ScreenBuffer buffer;
+    private final ScreenBuffer buffer;
 
     public Screen(double x, double y, double z, int yaw, int width, int height, double pixelsPerBlock, int fps, Color backgroundColor) {
         this.x = x;
@@ -30,7 +30,7 @@ public abstract class Screen {
         this.height = height;
 
         this.pixelsPerBlock = pixelsPerBlock;
-        this.fps = fps;
+        this.setFps(fps);
 
         this.backgroundColor = backgroundColor;
         this.buffer = new ScreenBuffer(this.width, this.height);
@@ -42,65 +42,113 @@ public abstract class Screen {
         return new double[]{x, y, z};
     }
 
-    public abstract void setPos(double x, double y, double z);
+    public final void setPos(double x, double y, double z) {
+        double oldX = this.x;
+        double oldY = this.y;
+        double oldZ = this.z;
 
-    public double getX() {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+
+        onChangePos(oldX, oldY, oldZ, x, y, z);
+    }
+
+    public abstract void onChangePos(double oldX, double oldY, double oldZ, double newX, double newY, double newZ);
+
+    public final double getX() {
         return x;
     }
 
-    public abstract void setX(double x);
-
-    public double getY() {
+    public final double getY() {
         return y;
     }
 
-    public abstract void setY(double y);
-
-    public double getZ() {
+    public final double getZ() {
         return z;
     }
 
-    public abstract void setZ(double z);
-
-    public int getYaw() {
+    public final int getYaw() {
         return yaw;
     }
 
-    public abstract void setYaw(int yaw);
+    public final void setYaw(int yaw) {
+        int oldYaw = this.yaw;
+        if (yaw < 0 || yaw > 360) {
+            throw new IllegalArgumentException("Yaw must be between 0 and 360.");
+        }
+        this.yaw = yaw;
+        onChangeYaw(oldYaw, yaw);
+    }
 
-    public int getWidth() {
+    public abstract void onChangeYaw(double oldYaw, double newYaw);
+
+    public final int getWidth() {
         return width;
     }
 
-    public abstract void setWidth(int width);
+    public final void setWidth(int width) {
+        int oldWidth = this.width;
+        this.width = width;
+        onChangeWidth(oldWidth, width);
+    }
 
-    public int getHeight() {
+    public abstract void onChangeWidth(int oldWidth, int newWidth);
+
+
+    public final int getHeight() {
         return height;
     }
 
-    public abstract void setHeight(int height);
+    public final void setHeight(int height) {
+        int oldHeight = this.height;
+        this.height = height;
+        onChangeHeight(oldHeight, height);
+    }
 
-    public double getPixelsPerBlock() {
+    public abstract void onChangeHeight(int oldHeight, int newHeight);
+
+    public final double getPixelsPerBlock() {
         return pixelsPerBlock;
     }
 
-    public abstract void setPixelsPerBlock(double pixelsPerBlock);
+    public final void setPixelsPerBlock(double pixelsPerBlock) {
+        double oldPixelsPerBlock = this.pixelsPerBlock;
+        this.pixelsPerBlock = pixelsPerBlock;
+        onChangePixelsPerBlock(oldPixelsPerBlock, pixelsPerBlock);
+    }
 
-    public int getFps() {
+    public abstract void onChangePixelsPerBlock(double oldPixelsPerBlock, double newPixelsPerBlock);
+
+    public final int getFps() {
         return fps;
     }
 
-    public abstract void setFps(int fps);
+    public final void setFps(int fps) {
+        int oldFps = this.fps;
+        if (fps < 1 || fps > 60) {
+            throw new IllegalArgumentException("FPS must be 1-60.");
+        }
+        this.fps = fps;
+        onChangeFps(oldFps, fps);
+    }
 
-    public Color getBackgroundColor() {
+    public abstract void onChangeFps(int oldFps, int newFps);
+
+    public final Color getBackgroundColor() {
         return backgroundColor;
     }
 
-    public abstract void setBackgroundColor(Color backgroundColor);
+    public final void setBackgroundColor(Color backgroundColor) {
+        Color oldBackgroundColor = this.backgroundColor;
+        this.backgroundColor = backgroundColor;
+        onChangeBackgroundColor(oldBackgroundColor, backgroundColor);
+    }
 
-    public ScreenBuffer getBuffer() {
+    public abstract void onChangeBackgroundColor(Color oldBackgroundColor, Color newBackgroundColor);
+
+    public final ScreenBuffer getBuffer() {
         return buffer;
     }
 
-    public abstract void setBuffer(ScreenBuffer buffer);
 }
