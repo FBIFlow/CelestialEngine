@@ -1,4 +1,4 @@
-package me.fbiflow.celestialcore.graphic.engine2d.bukkit;
+package me.fbiflow.celestialcore.graphic.engine2d.impl.bukkit;
 
 import me.fbiflow.celestialcore.Loader;
 import me.fbiflow.celestialcore.graphic.color.Color;
@@ -7,7 +7,6 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ItemDisplay;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class BukkitScreen extends Screen {
@@ -38,7 +37,7 @@ public class BukkitScreen extends Screen {
                 transform.getScale().set(pixelScale);
                 display.setTransformation(transform);
                 displayItems[width][height] = display;
-                display.setItemStack(ItemStack.of(BukkitPixelFormatter.format(getBackgroundColor())));
+                display.setItemStack(BukkitPixelFormatter.formatToItemStack(getBackgroundColor()));
             }
         }
     }
@@ -51,7 +50,9 @@ public class BukkitScreen extends Screen {
             public void run() {
                 for (int width = 0; width < getWidth(); width++) {
                     for (int height = 0; height < getHeight(); height++) {
-                        displayItems[width][height].setItemStack(ItemStack.of(BukkitPixelFormatter.format(getBuffer().getPixel(width, height))));
+                        var color = getBuffer().getPixel(width, height);
+                        var itemStack = BukkitPixelFormatter.formatToItemStack(color);
+                        displayItems[width][height].setItemStack(itemStack);
                     }
                 }
             }

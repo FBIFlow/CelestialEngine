@@ -1,6 +1,8 @@
 package me.fbiflow.celestialcore.graphic.engine2d;
 
 import me.fbiflow.celestialcore.graphic.color.Color;
+import me.fbiflow.celestialcore.graphic.engine2d.buffer.ScreenBuffer;
+import me.fbiflow.celestialcore.graphic.engine2d.edit.ScreenBufferEditSession;
 
 public class Screen {
 
@@ -33,6 +35,8 @@ public class Screen {
 
         this.backgroundColor = backgroundColor;
         this.buffer = new ScreenBuffer(this.width, this.height);
+
+        this.buffer.editSession().drawRectangle(0, 0, this.width - 1, this.height - 1, backgroundColor).forceUpdate();
     }
 
     public void updateFrame() {
@@ -41,6 +45,10 @@ public class Screen {
 
     public ScreenBuffer getBuffer() {
         return buffer;
+    }
+
+    public ScreenBufferEditSession editSession() {
+        return this.buffer.editSession();
     }
 
     public int getHeight() {
